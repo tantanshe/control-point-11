@@ -38,7 +38,7 @@ export interface ItemMutation {
   title: string;
   description: string;
   image: File | null;
-  price: number;
+  price: string;
   category: string;
 }
 

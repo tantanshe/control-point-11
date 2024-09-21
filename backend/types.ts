@@ -14,7 +14,7 @@ export interface Item {
   title: string;
   description: string;
   image: string;
-  price: number;
+  price: string;
   category: string;
   seller: string;
 }

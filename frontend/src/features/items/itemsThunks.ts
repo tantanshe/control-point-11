@@ -1,5 +1,5 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { Item, ItemMutation } from '../../types';
+import {createAsyncThunk} from '@reduxjs/toolkit';
+import {Item, ItemMutation} from '../../types';
 import axiosApi from '../../axiosApi';
 
 export const fetchItems = createAsyncThunk<Item[]>(
@@ -19,8 +19,8 @@ export const fetchItemById = createAsyncThunk<Item, string>(
 );
 
 export const addItem = createAsyncThunk<Item, ItemMutation>(
-  'items/createItem',
-  async (itemData, { getState }) => {
+  'items/addItem',
+  async (itemData, {getState}) => {
     const state: any = getState();
     const token = state.users.user.token;
 
@@ -32,7 +32,7 @@ export const addItem = createAsyncThunk<Item, ItemMutation>(
     formData.append('category', itemData.category);
 
     const response = await axiosApi.post('/items', formData, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: {Authorization: `Bearer ${token}`},
     });
 
     return response.data;
@@ -41,12 +41,12 @@ export const addItem = createAsyncThunk<Item, ItemMutation>(
 
 export const deleteItem = createAsyncThunk<string, string>(
   'items/deleteItem',
-  async (itemId, { getState }) => {
+  async (itemId, {getState}) => {
     const state: any = getState();
     const token = state.users.user.token;
 
     await axiosApi.delete(`/items/${itemId}`, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: {Authorization: `Bearer ${token}`},
     });
 
     return itemId;

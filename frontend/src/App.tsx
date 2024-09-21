@@ -22,6 +22,7 @@ function App() {
           <Route path="/" element={<HomePage/>}/>
           <Route path="/addItem" element={<AddItem/>}/>
           <Route path="/items/:id" element={<ItemDetails/>} />
+          <Route path="/category/:category" element={<HomePage />} />
           <Route path="*" element={<Typography variant="h1">Not found</Typography>}/>
         </Routes>
       </Container>
