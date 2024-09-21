@@ -55,7 +55,7 @@ const ItemDetails: React.FC = () => {
       <Typography variant="body1"><b>Phone:</b> {item.seller.phoneNumber}</Typography>
 
       {user && user._id === item.seller._id && (
-        <Button variant="contained" color="error" onClick={handleDelete}>
+        <Button variant="contained" color="error" onClick={handleDelete} sx={{mt: 2}}>
           Mark as sold
         </Button>
       )}
