@@ -28,7 +28,7 @@ const HomePage = () => {
   if (error) return <Typography>Error loading items.</Typography>;
 
   return (
-    <Box display="flex">
+    <Box display="flex" p={0} m={0}>
       <CategorySidebar/>
       <Box flexGrow={1} p={2}>
         <Typography variant="h4" mb={2}>
@@ -42,12 +42,20 @@ const HomePage = () => {
               <Grid item xs={12} sm={6} md={4} key={item._id}>
                 <Link to={`/items/${item._id}`}
                       style={{textDecoration: 'none', color: 'inherit'}}>
-                  <Card>
+                  <Card sx={{
+                    boxShadow: 3,
+                    transition: 'transform 0.3s ease',
+                    '&:hover': {
+                      transform: 'scale(1.05)',
+                      boxShadow: 6,
+                    },
+                  }}>
                     <CardMedia
                       component="img"
-                      height="140"
+                      height="200"
                       image={`http://localhost:8000/${item.image}`}
                       alt={item.title}
+                      sx={{objectFit: 'contain'}}
                     />
                     <CardContent>
                       <Typography variant="h6">{item.title}</Typography>

@@ -70,6 +70,14 @@ const run = async () => {
       price: '800',
       seller: userOne._id,
     },
+    {
+      title: 'Jacket',
+      description: 'Leather jacket. Good for cold weather.',
+      image: 'fixtures/item6.jpeg',
+      category: 'Clothing',
+      price: '3800',
+      seller: userOne._id,
+    },
   );
 
   await db.close();
